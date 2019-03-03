@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="Dados()">
+   <table id="table" class="display" style="width:100%">
+        <thead>
+           <tr>
+             <th>Mês</th>
+             <th>Indice 2018</th>
+             <th>Indice 2017</th>
+             <th>Diferenca %</th>                     
+           </tr>
+        </thead>
+        <tbody id="tbody">      
+        </tbody>
+    </table>
+    
+        <canvas id="grafico"></canvas>
+
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="Chart.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+<script>
+        $(document).ready(function() {
+        $('#table').DataTable();
+                    } );
+</script>
+
+<script>
+        var ctx = document.getElementById("grafico");
+         var chartGraph = new Chart(ctx,{
+                 type: 'bar',
+                data:{
+                labels : mes,
+        datasets: [
+                {
+                label:"Indice 2018",
+                data : ind2018,
+                borderWidth:6,
+                borderColor: 'rgba(77,166,253,0.85)',
+        
+                },{
+                label:"Indice 2017",
+                data : ind2017,
+                borderWidth:6,
+                borderColor: 'rgba(6,204,6,0.85)',
+        
+                }
+                ]
+                }
+        })
+  </script>
+   
+</body>
+</html>
